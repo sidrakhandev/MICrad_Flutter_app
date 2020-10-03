@@ -5,12 +5,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  Color gradientStart = Colors.deepPurple[700]; //Change start gradient color here
+  Color gradientEnd = Colors.purple[500]; //Change end gradient color here
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: SafeArea(
+        body: new Container(
+          decoration: new BoxDecoration(
+            gradient: new LinearGradient(colors: [gradientStart, gradientEnd],
+                begin: const FractionalOffset(0.5, 0.0),
+                end: const FractionalOffset(0.0, 0.5),
+                stops: [0.0,1.0],
+                tileMode: TileMode.clamp
+            ),
+          ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
